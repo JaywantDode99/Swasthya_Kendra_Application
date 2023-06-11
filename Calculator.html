@@ -1,0 +1,462 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f1e9e9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #f6f4f4;
+            /* background-image: url("https://tse4.mm.bing.net/th?id=OIP.KEh-IQzQJ77NPBvx8Gw3gQHaHa&pid=Api&P=0&h=180"); */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"],
+        select {
+            padding: 5px;
+            width: 50%;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #a31111;
+            color: #f1eeee;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #calorieResult {
+            color: #35cfd4;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+
+    
+    <h1>Calorie Calculator</h1>
+    <form id="calorieForm">
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" name="weight" required>
+        <br>
+
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" name="height" required>
+        <br>
+
+        <label for="age">Age (in years):</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+
+        <label for="activityLevel">Activity Level:</label>
+        <select id="activityLevel" name="activityLevel" required>
+            <option value="1.2">Sedentary (little or no exercise)</option>
+            <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+            <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+            <option value="1.725">Very active (hard exercise/sports 6-7 days/week)</option>
+            <option value="1.9">Extra active (very hard exercise/sports & physical job or 2x training)</option>
+        </select>
+        <br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <h2>Your Daily Calorie Needs:</h2>
+    <p id="calorieResult"></p>
+
+    <script>
+        document.getElementById("calorieForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get form values
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+            var age = parseInt(document.getElementById("age").value);
+            var gender = document.getElementById("gender").value;
+            var activityLevel = parseFloat(document.getElementById("activityLevel").value);
+
+            // Calculate BMR (Basal Metabolic Rate)
+            var bmr;
+            if (gender === "male") {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+
+            // Calculate Daily Calorie Needs
+            var calorieNeeds = bmr * activityLevel;
+
+            // Display the result
+            document.getElementById("calorieResult").textContent = "Your daily calorie needs are: " + calorieNeeds.toFixed(2) + " calories";
+        });
+    </script>
+
+
+
+
+
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Calories_Calculator</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <script src="https://kit.fontawesome.com/56c759bb6e.js" crossorigin="anonymous"></script>
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  
+  ======================================================== -->
+  <!-- <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f1e9e9;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        background-color: #f6f4f4;
+        /* background-image: url("https://tse4.mm.bing.net/th?id=OIP.KEh-IQzQJ77NPBvx8Gw3gQHaHa&pid=Api&P=0&h=180"); */
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="number"],
+    select {
+        padding: 5px;
+        width: 50%;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #a31111;
+        color: #f1eeee;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    h2 {
+        margin-top: 20px;
+        color: #333;
+    }
+
+    #calorieResult {
+        color: #35cfd4;
+        font-weight: bold;
+    }
+</style> -->
+
+
+
+
+</head>
+
+<body>
+
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="index.html"></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <div class="search">
+                <form action="" method="post">
+                    <input type="email" name="email"><input type="submit" value="search">
+
+                </form>
+            </div>
+
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+
+                <ul>
+                    <li>
+                        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-25-512.png" alt="" srcset="">
+                    </li>
+                    <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="care.html">Care</a></li>
+                    <li><a class="nav-link scrollto" href="index.html ">Trip</a></li>
+
+                    <li class="dropdown"><a href="#"><span>List OF Departments</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Departments</a></li>
+                            <li class="dropdown"><a href="#"><span> Department1</span> <i
+                                        class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Department1</a></li>
+                                    <li><a href="#">Department2</a></li>
+                                    <li><a href="#">Department3</a></li>
+                                    <li><a href="#">Department4</a></li>
+                                    <li><a href="#">Department5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Phase1</a></li>
+                            <li><a href="#">Phase2</a></li>
+                            <li><a href="#">Phase3</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="#contact">Group</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+              <a href="./profile.html" class="appointment-btn scrollto">
+                <img src="assets/img/women.jpg"
+                    alt="" srcset=""> Sunita Sharma
+            </a>
+        </div>
+    </header>
+
+    <br><br>
+
+    <main>
+        <section class="profile">
+            <div class="avatar">
+                <img src="assets/img/women.jpg" alt="" srcset="">
+                <div class="info">
+                    <h1  style="color: blueviolet;">Sunita Sharma</h1>
+                    <p style="color: rgb(7, 17, 17); font-size: large;font: bold;">70 Years</p>
+
+                </div>
+                <h2>Calculate Calories of Sunita Sharma</h2>
+            </div>
+        </section>
+        <div class="text-center">
+            <h1>Calorie Calculator</h1>
+            <form id="calorieForm">
+                <div class="form-group">
+                    <label for="weight">Weight (in kg):</label>
+                    <input type="number" class="form-control" id="weight" name="weight" required>
+                </div>
+                <br>
+        
+                <div class="form-group">
+                    <label for="height">Height (in cm):</label>
+                    <input type="number" class="form-control" id="height" name="height" required>
+                </div>
+                <br>
+        
+                <div class="form-group">
+                    <label for="age">Age (in years):</label>
+                    <input type="number" class="form-control" id="age" name="age" required>
+                </div>
+                <br>
+        
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <br>
+        
+                <div class="form-group">
+                    <label for="activityLevel">Activity Level:</label>
+                    <select class="form-control" id="activityLevel" name="activityLevel" required>
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise/sports 6-7 days/week)</option>
+                        <option value="1.9">Extra active (very hard exercise/sports & physical job or 2x training)</option>
+                    </select>
+                </div>
+                <br>
+        
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+        
+            <h2>Your Daily Calorie Needs:</h2>
+            <p id="calorieResult"></p>
+        </div>
+        
+    </main>
+
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>CareBuddy</h3>
+                        <p>
+                    Sancheti Hospital <br> Pune, Maharashtra<br> India <br><br>
+                            <strong>Phone:</strong>+91 8602708421 <br>
+                            <strong>Email:</strong> jaywantdode99@gmail.com<br>
+                        </p>
+                    </div>
+
+                 </div>
+
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4 style="color: blueviolet;">Join Our Newsletter</h4>
+                        <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p> -->
+                        <form action="" method="post">
+                            <input type="email" name="email"><input class="btn btn-danger" type="submit" value="Subscribe">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Swasthya Kendra</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="#">Jaywant Dode</a>
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+
+    <script>
+        document.getElementById("calorieForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get form values
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+            var age = parseInt(document.getElementById("age").value);
+            var gender = document.getElementById("gender").value;
+            var activityLevel = parseFloat(document.getElementById("activityLevel").value);
+
+            // Calculate BMR (Basal Metabolic Rate)
+            var bmr;
+            if (gender === "male") {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+
+            // Calculate Daily Calorie Needs
+            var calorieNeeds = bmr * activityLevel;
+
+            // Display the result
+            document.getElementById("calorieResult").textContent = "Your daily calorie needs are: " + calorieNeeds.toFixed(2) + " calories";
+        });
+    </script>
+</body>
+
+</html>
